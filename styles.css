@@ -1,0 +1,702 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    background: linear-gradient(135deg, #f0f0f0, #e2e2e2);
+    color: #1d1d1f;
+    line-height: 1.5;
+}
+
+/* Glassmorphism container */
+.glass-container {
+    background: rgba(255, 255, 255, 0.1);
+    /* semi-transparent */
+    backdrop-filter: blur(50px) saturate(200%);
+    -webkit-backdrop-filter: blur(60px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* light border */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* soft shadow */
+    border-radius: 16px;
+    /* smooth corners */
+    padding: 5px;
+    width: 100%;
+}
+
+.glass-container:hover {
+    background: rgba(255, 255, 255, 0.08); /* Slightly more visible on hover */
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.5); /* Deeper glow on hover */
+}
+
+.glass-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+}
+
+/* Header / Navigation */
+.header-show {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 32px;
+    background: rgba(245, 245, 247, 0.8);
+    border-bottom: 1px solid #d2d2d7;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-show .logo i {
+    margin-top: -30px;
+}
+
+.logo i {
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1d1d1f;
+    font-weight: 500;
+    font-size: 1.27rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0071e3;
+}
+
+.nav-links {
+  display: none;
+  flex-direction: column;
+  background: white;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav-links.show {
+  display: flex;
+}
+
+.hamburger {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('https://www.apple.com/newsroom/images/2025/06/apple-elevates-the-iphone-experience-with-ios-26/tile/Apple-WWDC25-iOS-26-hero-250609-lp.jpg.news_app_ed.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Makes the image fill the section */
+    background-position: center; /* Keeps the image centered */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 2rem;
+    color: white;
+    padding: 3rem;
+    background-color: #ffffff;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.msg-box,
+.msg-boxa,
+.msg-boxb {
+    max-width: 90%;
+    background-color: #007aff;
+    color: white;
+    padding: 2rem 2.5rem;
+    /* Bigger padding = bigger bubble */
+    border-radius: 30px 30px 30px 0px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 2rem;
+    /* Bigger font size */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.9s ease both;
+}
+
+.msg-boxa {
+    border-radius: 30px 30px 0px 30px;
+    background-color: #0066d6;
+    color: white;
+}
+
+.msg-boxb {
+    border-radius: 30px 30px 30px 0px;
+    background-color: #005bb5;
+    color: white;
+}
+
+.msg-boxa h3 {
+    color: white;
+}
+
+.apple-btn {
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+    border: none;
+    background-color: #005bb5;
+    color: white;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.apple-btn:hover {
+    background-color: #3994f0;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product Sections */
+section {
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid #e2e2e2;
+}
+
+.macbook h1,
+.iphone h2,
+.cards h1,
+.cards h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.macbook {
+    background: white;
+    font-size: 50px;
+}
+
+.macbook h3 {
+    background: linear-gradient(135deg, orange, pink, skyblue, coral);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px;
+}
+
+.cards .ipad {
+    background-color: black;
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+}
+
+.ipad img {
+    object-fit: cover;
+}
+
+.ipad h3 {
+    background: linear-gradient(135deg, orange, pink, skyblue, coral);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.iphone {
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: -60px;
+}
+
+.iphone img {
+    width: 100%;
+}
+
+.iphone h3 {
+    background: linear-gradient(135deg, orange, pink, skyblue, coral);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cards .ai {
+    background-image: url("https://plus.unsplash.com/premium_photo-1689607809829-862d15ae62fe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFuJTIwd2l0aCUyMGlwaG9uZSUyMDE2JTIwcHJvJTIwbWF4fGVufDB8fDB8fHww");
+}
+
+.cards .ai p {
+    color: white;
+}
+
+.cards .airpods {
+    background-image: url("https://media.istockphoto.com/id/1415221633/photo/happy-white-skinned-fitness-girl-enjoying-good-music-outside-after-training.jpg?s=612x612&w=0&k=20&c=NQmZOUKvFf5818ZNTBcqBTA9ojECfO8FkWmFpiEY8vk=");
+}
+
+.cards .airpods h1 {
+    color: white;
+}
+
+.cards .airpods h2 {
+    color: white;
+}
+
+.cards .watch {
+    background-image: url('https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/121202-apple-watch-series-10.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+
+.cards .watch .learn {
+    margin-top: 180px;
+}
+
+.cards .trade {
+    background-image: url('data:image/jpeg;base64,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');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+
+.cards .Cardr {
+    background-image: url('https://www.apple.com/newsroom/images/product/apple-card/standard/Apple-Card-available-today-Apple-Card-082019_inline.jpg.large.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+
+.cars .carousel .stream {
+    border: none;
+    background-color: #005bb5;
+    color: white;
+    border-radius: 20px;
+    padding: 12px;
+    transition: 0.3s ease-in-out;
+}
+
+.cars .carousel .stream:hover {
+    background-color: #8dc1f6;
+    color: white;
+}
+
+section p,
+section h3 {
+    color: #6e6e73;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.learn,
+.buy,
+.clip,
+.estimate,
+.apply {
+    margin: 10px 10px 0;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    border-radius: 980px;
+    border: 1px solid #0071e3;
+    background: transparent;
+    color: #0071e3;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.learn:hover,
+.buy:hover,
+.clip:hover,
+.estimate:hover,
+.apply:hover {
+    background: #0071e3;
+    color: white;
+}
+
+/* Cards Grid */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.cards section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+/* Carousel */
+.cars {
+    margin: 40px auto;
+    max-width: 1024px;
+}
+
+.carousel img {
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Gray Box Section (fine print) */
+.graybox {
+    background: #f5f5f7;
+    color: #6e6e73;
+    font-size: 0.85rem;
+    padding: 40px 20px;
+    border-top: 1px solid #d2d2d7;
+    line-height: 1.7;
+}
+
+/* Footer */
+footer.end {
+    background: #f9f9f9;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+    color: #6e6e73;
+}
+
+footer.end a {
+    color: #0071e3;
+    text-decoration: none;
+}
+
+footer.end a:hover {
+    text-decoration: underline;
+}
+
+.cards .ipad img {
+    width: 100%;
+}
+
+/* ========== Base (Mobile-First) ========== */
+.glass-container {
+    width: 100%;
+}
+
+/* ========== Hamburger Icon ========== */
+.hamburger {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 9999; /* Ensure it stays above everything */
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+/* ========== Header Navigation Container ========== */
+.header-show {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 32px;
+    background: rgba(245, 245, 247, 0.85);
+    border-bottom: 1px solid #d2d2d7;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+}
+
+/* ========== Navigation Menu ========== */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+
+    background-color: rgba(255, 255, 255, 0.85);
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+    /* Hidden state */
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 900;
+}
+
+/* ========== Show State with Animation ========== */
+.nav-links.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* ========== List Styles ========== */
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ========== Link Styling ========== */
+.nav-links a {
+    text-decoration: none;
+    color: #1d1d1f;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #0071e3;
+}
+
+/* ========== Button Styling ========== */
+.apple-btn {
+    margin-top: 20px;
+    padding: 12px 32px;
+    background: #0071e3;
+    color: white;
+    border: none;
+    border-radius: 980px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.apple-btn:hover {
+    background: #005bb5;
+}
+
+/* Hero Section */
+section {
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid #e2e2e2;
+}
+
+.macbook img,
+.iphone img {
+    width: 100%;
+}
+
+.macbook h1,
+.iphone h2,
+.cards h1,
+.cards h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+section p,
+section h3 {
+    color: #6e6e73;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+/* Buttons */
+.learn,
+.buy,
+.clip,
+.estimate,
+.apply {
+    margin: 10px 10px 0;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    border-radius: 980px;
+    border: 1px solid #0071e3;
+    background: transparent;
+    color: #0071e3;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.learn:hover,
+.buy:hover,
+.clip:hover,
+.estimate:hover,
+.apply:hover {
+    background: #0071e3;
+    color: white;
+}
+
+/* Cards Grid */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.cards section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+/* Carousel */
+.cars {
+    margin: 40px auto;
+    max-width: 100%;
+}
+
+.carousel img {
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Gray Box Section */
+.graybox {
+    background: #f5f5f7;
+    color: #6e6e73;
+    font-size: 0.85rem;
+    padding: 40px 20px;
+    border-top: 1px solid #d2d2d7;
+    line-height: 1.7;
+}
+
+/* Footer */
+footer.end {
+    background: #f9f9f9;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+    color: #6e6e73;
+}
+
+footer.end a {
+    color: #0071e3;
+    text-decoration: none;
+}
+
+footer.end a:hover {
+    text-decoration: underline;
+}
+
+.site-container {
+  animation: fadeInUp 1s ease-out;
+}
+
+/* ✅ Tablet Devices */
+@media (max-width: 1024px) {
+    .glass-container {
+        max-width: 100%;
+    }
+
+    .hero {
+        padding: 2rem;
+        background-position: top center;
+    }
+}
+
+/* ✅ Mobile Devices */
+@media (max-width: 600px) {
+    .hero {
+        padding: 1.5rem;
+        gap: 1.5rem;
+        background-position: top;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero button, .hero a {
+        font-size: 0.9rem;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+/* ========== Desktop Styles ==========
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
+        width: auto;
+    }
+
+    .nav-links ul {
+        flex-direction: row;
+        gap: 20px;
+    }
+} */
+
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background: transparent;
+        -webkit-backdrop-filter: blur(1px);
+        backdrop-filter: blur(1px);
+        padding: 0;
+        box-shadow: none;
+        opacity: 1 !important;
+        transform: none !important;
+        pointer-events: auto;
+        width: auto;
+    }
+
+    .nav-links ul {
+        flex-direction: row;
+        gap: 24px;
+    }
+}
